@@ -29,10 +29,10 @@ app.get("/users", (req,res)=>{
 
 //middleware
 app.use("/api/auth", authRoute);
-app.use("/api/users", userRoute);
-app.use("/api/hotels", hotelRoute);
-app.use("/api/rooms", roomRoute);
-app.use("/api/vehicles", vehicleRoute);
+app.use("/api/users", usersRoute);
+app.use("/api/hotels", hotelsRoute);
+app.use("/api/rooms", roomsRoute);
+app.use("/api/vehicles", vehiclesRoute);
 
 
 app.listen(8800, ()=>{
