@@ -4,6 +4,7 @@ import Room from "../models/Room.js";
 
 const router = express.Router();
 
+
 //CREATE
 router.post("/", createRoom);
 
@@ -22,6 +23,7 @@ router.get("/:id", getRoom);
 
 //GET ALL
 router.get("/", getRooms);
+
 
 
 export default router
