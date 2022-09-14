@@ -31,7 +31,7 @@ app.get("/users", (req, res) => {
 //middleware
 
 app.use((req, res, next) => {
-  console.log("hii middleware");
+ 
   next();
 });
 
