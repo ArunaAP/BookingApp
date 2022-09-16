@@ -7,6 +7,7 @@ import hotelsRoute from "./routes/hotels.js";
 import roomsRoute from "./routes/rooms.js";
 import vehiclesRoute from "./routes/vehicles.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 const app = express();
 dotenv.config();
@@ -37,6 +38,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 
