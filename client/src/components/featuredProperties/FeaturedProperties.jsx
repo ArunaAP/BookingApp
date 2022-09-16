@@ -1,40 +1,31 @@
+import useFetch from "../../hooks/useFetch";
 import "./featuredProperties.css"
 
 const FeaturedProperties = () => {
+
+
+    const { data, loading, error } = useFetch("/hotels?featured=true&limit=4");
+
   return (
     <div className="fp">
-        <div className="fpItem">
-            <img src="https://q-xx.bstatic.com/xdata/images/xphoto/300x240/57584488.jpeg?k=d8d4706fc72ee789d870eb6b05c0e546fd4ad85d72a3af3e30fb80ca72f0ba57&o=" alt="" className="fpImg" />
-            <span className="fpName">Cinnomon</span>
-            <span className="fpCity">Colombo</span>
-            <span className="fpPrice">Starting from $120</span>
-            <div className="fpRating">
-                <button>8.9</button>
+        {loading ? "Loading" : <>
+        {data.map(item=>(
+
+            <div className="fpItem" key={item._id}>
+            <img src={item.photos[0]} alt="" className="fpImg" />
+            <span className="fpName">{item.name}</span>
+            <span className="fpCity">{item.city}</span>
+            <span className="fpPrice">Starting from ${item.cheapestPrice}</span>
+            {item.rating && <div className="fpRating">
+                <button>{item.rating}</button>
                 <span>Excelent</span>
-            </div>
+            </div>}
         </div>
         
-        <div className="fpItem">
-            <img src="https://q-xx.bstatic.com/xdata/images/xphoto/300x240/57584488.jpeg?k=d8d4706fc72ee789d870eb6b05c0e546fd4ad85d72a3af3e30fb80ca72f0ba57&o=" alt="" className="fpImg" />
-            <span className="fpName">Cinnomon</span>
-            <span className="fpCity">Colombo</span>
-            <span className="fpPrice">Starting from $120</span>
-            <div className="fpRating">
-                <button>8.9</button>
-                <span>Excelent</span>
-            </div>
-        </div>
-
-        <div className="fpItem">
-            <img src="https://q-xx.bstatic.com/xdata/images/xphoto/300x240/57584488.jpeg?k=d8d4706fc72ee789d870eb6b05c0e546fd4ad85d72a3af3e30fb80ca72f0ba57&o=" alt="" className="fpImg" />
-            <span className="fpName">Cinnomon</span>
-            <span className="fpCity">Colombo</span>
-            <span className="fpPrice">Starting from $120</span>
-            <div className="fpRating">
-                <button>8.9</button>
-                <span>Excelent</span>
-            </div>
-        </div>
+        ))}
+        </>
+        }
+        
         
     </div>
         
