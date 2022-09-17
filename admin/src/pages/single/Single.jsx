@@ -16,40 +16,57 @@ const Single = () => {
             <h1 className="title">Information</h1>
             <div className="item">
               <img
-                src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+                src="https://www.thespruce.com/thmb/aGEhef5NbpY6R_Fahn5fIW8SAHk=/941x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/put-together-a-perfect-guest-room-1976987-hero-223e3e8f697e4b13b62ad4fe898d492d.jpg"
                 alt=""
                 className="itemImg"
               />
               <div className="details">
-                <h1 className="itemTitle">Jane Doe</h1>
+                <h1 className="itemTitle">Johns Rooms</h1>
                 <div className="detailItem">
-                  <span className="itemKey">Email:</span>
-                  <span className="itemValue">janedoe@gmail.com</span>
+                  <span className="itemKey">type</span>
+                  <span className="itemValue">single</span>
+                </div>
+
+                <div className="detailItem">
+                  <span className="itemKey"> <address></address></span>
+                  <span className="itemValue">Bentota</span>
+                </div>
+
+                <div className="detailItem">
+                  <span className="itemKey"> contactNumber </span>
+                  <span className="itemValue">: 0912267439</span>
+                </div>
+
+                <div className="detailItem">
+                  <span className="itemKey"> type</span>
+                  <span className="itemValue">single</span>
+                </div>
+
+              
+            
+                <div className="detailItem">
+                  <span className="itemKey"> price</span>
+                  <span className="itemValue">50</span>
                 </div>
                 <div className="detailItem">
-                  <span className="itemKey">Phone:</span>
-                  <span className="itemValue">+1 2345 67 89</span>
-                </div>
-                <div className="detailItem">
-                  <span className="itemKey">Address:</span>
+                  <span className="itemKey">distance</span>
                   <span className="itemValue">
-                    Elton St. 234 Garden Yd. NewYork
+                  200
                   </span>
                 </div>
                 <div className="detailItem">
-                  <span className="itemKey">Country:</span>
-                  <span className="itemValue">USA</span>
+                  <span className="itemKey">rating</span>
+                  <span className="itemValue">2</span>
                 </div>
               </div>
             </div>
           </div>
           <div className="right">
-            <Chart aspect={3 / 1} title="User Spending ( Last 6 Months)" />
+          
           </div>
         </div>
         <div className="bottom">
-        <h1 className="title">Last Transactions</h1>
-          <List/>
+        
         </div>
       </div>
     </div>
