@@ -6,6 +6,9 @@ import usersRoute from "./routes/users.js";
 import hotelsRoute from "./routes/hotels.js";
 import roomsRoute from "./routes/rooms.js";
 import vehiclesRoute from "./routes/vehicles.js";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+
 const app = express();
 dotenv.config();
 
@@ -31,11 +34,12 @@ app.get("/users", (req, res) => {
 //middleware
 
 app.use((req, res, next) => {
-  console.log("hii middleware");
+ 
   next();
 });
 
-
+app.use(cors());
+app.use(cookieParser());
 app.use(express.json());
 
 app.use("/api/auth", authRoute);
