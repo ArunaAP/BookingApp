@@ -10,7 +10,7 @@ import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContex";
 import { hotelColumns, userColumns } from "./datatablesource";
-import NewHotel from "./pages/newHotel/NewHotel";
+import NewHotel from "./pages/newHotel/NewHotel"; 
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
