@@ -29,6 +29,24 @@ const Datatable = ({columns}) => {
 
   };
 
+  const handleUpdate = async (id) => {
+
+    try{
+          await axios.get(`/${path}/${id}`);
+    }catch(err){  }
+
+    console.log( list.filter((item) => item._id == id) );
+
+   
+    
+  };
+
+
+
+
+
+
+
   const actionColumn = [
     {
       field: "action",
@@ -37,7 +55,7 @@ const Datatable = ({columns}) => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
+            <Link to= {`/${path}/${params.row._id}`}   style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
             </Link>
             <div
@@ -47,9 +65,13 @@ const Datatable = ({columns}) => {
               Delete
             </div>
 
-            <Link to="/users/new" style={{ textDecoration: "none" }}>
-              <div className="viewButton">Update</div>
+            <Link to=   {`/${path}/${params.row._id}`}   style={{ textDecoration: "none" }}>
+              <div className="viewButton"
+              onClick={() => handleUpdate(params.row._id)}
+              >Update</div>
             </Link>
+
+    
 
 
           </div>
@@ -60,7 +82,7 @@ const Datatable = ({columns}) => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add New 
+        Add New {path} 
         <Link to={`/${path}/new`} className="link">
           Add New
         </Link>

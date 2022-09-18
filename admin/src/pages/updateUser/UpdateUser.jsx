@@ -1,50 +1,58 @@
-import "./new.scss";
+import "./updateUser.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
-import React, { useContext, useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios"
-import { useLocation, useNavigate } from "react-router-dom";
-import {AuthContext} from "../../context/AuthContex"
-import useFetch from "../../hooks/useFetch";
-
-
-const New = ({ inputs, title }) => {
-
-  const [file, setFile] = useState("");
-  const [info , setInfo] = useState({});
 
 
 
-  
+const UpdateUser = ({ inputs, title }) => {
+//   const [file, setFile] = useState("");
+//   const [info , setInfo] = useState({});
 
-  const handleChange= e => {
-      setInfo( (prev) => ({...prev, [e.target.id] : e.target.value }));
-  };
+//   const handleChange= e => {
+//       setInfo( (prev) => ({...prev, [e.target.id] : e.target.value }));
+//   };
 
- const handleClick = async e =>{
-    e.preventDefault();
-    const data = new FormData()
-    data.append("file" , file )
-    data.append("upload_preset" , "upload")
-    try{
-        const uploadRes = await axios.post("https://api.cloudinary.com/v1_1/namal97/image/upload" , data);
-        const {url} = uploadRes.data;
-        const newUser = {
-          ...info,
-          img: url,
-        };
+//  const handleClick = async e =>{
+//     e.preventDefault();
+//     const data = new FormData()
+//     data.append("file" , file )
+//     data.append("upload_preset" , "upload")
+//     try{
+//         const uploadRes = await axios.post("https://api.cloudinary.com/v1_1/namal97/image/upload" , data);
+//         const {url} = uploadRes.data;
+//         const newUser = {
+//           ...info,
+//           img: url,
+//         };
 
-        await axios.post("/auth/register" , newUser);
+//         await axios.post("/auth/register" , newUser);
 
-    }catch(err){
-      console.log(err)
-    }
- }
+//     }catch(err){
+//       console.log(err)
+//     }
+//  }
 
   return (
     <div className="new">
-      <Sidebar />
+
+      <h1>user update</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {/* <Sidebar />
       <div className="newContainer">
         <Navbar />
         <div className="top">
@@ -83,18 +91,15 @@ const New = ({ inputs, title }) => {
                   />
                 </div>
               ))}
-              <button onClick={handleClick}>Send</button>
-              <button >Update</button>
-
-
-              
+    
+              <button>Update</button>
               
             </form>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
 
-export default New;
+export default UpdateUser;

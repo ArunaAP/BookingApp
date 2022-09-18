@@ -11,6 +11,7 @@ import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContex";
 import { hotelColumns, userColumns } from "./datatablesource";
 import NewHotel from "./pages/newHotel/NewHotel";
+import UpdateUser from "./pages/updateUser/UpdateUser";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -30,6 +31,8 @@ function App() {
     <div className={darkMode ? "app dark" : "app"}>
       <BrowserRouter>
         <Routes>
+
+
           <Route path="/">
             <Route path="login" element={<Login />} />
             <Route index element=
@@ -38,17 +41,26 @@ function App() {
                 <Home />
             </ProtectedRoute>
             } />
+            
+
             <Route path="users">
-              <Route index element={
+              <Route index element=
+              {
               <ProtectedRoute>
                    <List columns={userColumns}/>
               </ProtectedRoute>
             } />
+
+
+
               <Route path=":userId" element={
               <ProtectedRoute>
                  <Single />
               </ProtectedRoute>
              } />
+
+
+
               <Route
                 path="new"
                 element={
@@ -57,6 +69,9 @@ function App() {
               </ProtectedRoute>
                   }
               />
+
+
+
             </Route>
             <Route path="hotels">
               <Route index element=
@@ -68,6 +83,9 @@ function App() {
                             <Single />
                          </ProtectedRoute>
               } />
+
+
+
               <Route
                 path="new"
                 element={
@@ -76,6 +94,9 @@ function App() {
                </ProtectedRoute>
               }
               />
+
+
+
             </Route>
           </Route>
         </Routes>
